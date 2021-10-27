@@ -175,3 +175,12 @@ const currentbrands = inventory.map((item) => {
     return item.brand;
 })
 console.log(currentbrands);
+
+// let arrayTVbrand = [];
+// inventory.forEach(item => {
+//     arrayTVbrand.push(item.brand)
+//
+// });
+// console.log(arrayTVbrand);
+
+// deze kan ook van Marcel gekregen ter vergelijking.
