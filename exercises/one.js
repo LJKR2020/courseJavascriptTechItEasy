@@ -188,7 +188,7 @@ console.log(tvType);
 const soldOut = inventory.filter((stock) => {
     const onStock = stock.originalStock - stock.sold;
     if (onStock === 0) {
-        return stock.brand;
+        return stock.type;
     }
 })
 console.log(soldOut);
