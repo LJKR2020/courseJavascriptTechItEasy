@@ -161,5 +161,3 @@ const inventory = [
     sold: 8,
   },
 ];
-
-export {inventory};
