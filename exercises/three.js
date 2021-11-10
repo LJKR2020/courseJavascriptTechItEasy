@@ -166,15 +166,23 @@ const inventory = [
 // in een lijst op de pagina weer te geven. Zorg ervoor dat dit ook zou werken als we
 // 200 tv's in onze array zouden hebben staan. Dat er dubbele namen in zitten, is niet erg.
 
-// [] zet een variabele op met de map-filter er in.
-// [] declareer de anonieme functie van de map-methode: voeg alleen de merken toe aan de array.
-// [] return het antwoord.
-// [] controleer of de methode werkt.
+// [x] zet een variabele op met de map-filter er in.
+// [x] declareer de anonieme functie van de map-methode: voeg alleen de merken toe aan de array.
+// [x] return het antwoord.
+// [x] controleer of de methode werkt.
 
 const currentbrands = inventory.map((item) => {
-    return item.brand;
+    let brand = item.brand;
+    listContainer = document.createElement("div");
+    listelement = document.createElement("ul");
+    numbersOfListItems = brand.length;
+    return brand;
 })
 console.log(currentbrands);
+
+const brand = document.getElementById("brands");
+brand.textContent = currentbrands;
+document.getElementById("brands").style.listStyleType
 
 // let arrayTVbrand = [];
 // inventory.forEach(item => {
