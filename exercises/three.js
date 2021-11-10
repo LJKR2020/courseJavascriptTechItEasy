@@ -171,16 +171,27 @@ const inventory = [
 // [x] return het antwoord.
 // [x] controleer of de methode werkt.
 
-const currentbrands = inventory.map(item => item.brand);
+// const currentbrands = inventory.map(item => item.brand);
+//
+// currentbrands.forEach(brand => {
+//     const li = document.createElement('li');
+//     document.getElementById('brands').appendChild(li);
+//     li.textContent = brand;
+// });
 
-currentbrands.forEach(brand => {
-    const li = document.createElement('li');
-    document.getElementById('brands').appendChild(li);
-    li.textContent = brand;
-});
-
-// Opdracht 4b: Schrijf de code uit 4a om naar een functie die een
+// Opdracht 3b: Schrijf de code uit 3a om naar een functie die een
 // array met tv-objecten verwacht. Het is handig om onze scripts
 // als functies op te zetten, zodat we ze gemakkelijk kunnen
-// hergebruiken. Tip: vergeet deze functie
-// - declaratie niet aan te roepen!
+// hergebruiken. Tip: vergeet deze functie declaratie niet aan te roepen!
+
+function brandList(item) {
+    let brands = item.map(item => item.brand);
+    brands.forEach(brand => {
+        const li = document.createElement('li');
+        document.getElementById('brands').appendChild(li);
+        li.textContent = brand;
+    });
+    return brands;
+}
+
+brandList(inventory);
