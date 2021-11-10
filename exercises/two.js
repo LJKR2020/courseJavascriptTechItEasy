@@ -208,6 +208,7 @@ inventory.forEach(item => {
 
 const soldproduct = document.getElementById("soldProducts");
 soldproduct.textContent = combineSold;
+document.getElementById("soldProducts").style.color = "hsl(139, 100%, 40%)";
 
 // Opdracht 2c: Hoeveel tv's heeft Tech It Easy ingekocht? Schrijf een script dat dit berekent. Log de uitkomst in de console.
 
@@ -220,7 +221,9 @@ inventory.forEach(item => {
 // Opdracht 2d: Zorg ervoor dat dit aantal in het blauw wordt weergegeven op de pagina.
 
 const purchased = document.getElementById("purchasedProducts");
+document.getElementById("purchasedProducts").style.color = "hsl(225, 100%, 50%)";
 purchased.textContent = combinepurchased;
+
 
 // Opdracht 2e: Geef in het rood weer hoeveel tv's er nog verkocht moeten worden. verwachte uitkomst is 40
 
@@ -232,3 +235,4 @@ inventory.forEach(item => {
 
 const stock = document.getElementById("stockProducts");
 stock.textContent = readyToBeSold;
+document.getElementById("stockProducts").style.color = "hsl(6, 88%, 51%)";
