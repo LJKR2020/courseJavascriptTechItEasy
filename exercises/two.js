@@ -174,7 +174,7 @@ let combineSold = 0;
 inventory.forEach(item => {
     combineSold += item.sold;
 })
-console.log(combineSold);
+// console.log(combineSold);
 
 // const combineSold = inventory.forEach((item) => {
 //     let outcome = 0;
@@ -206,15 +206,21 @@ console.log(combineSold);
 
 // Opdracht 2b: Zorg ervoor dat dit aantal in het groen wordt weergegeven op de pagina.
 
+const soldproduct = document.getElementById("soldProducts");
+soldproduct.textContent = combineSold;
+
 // Opdracht 2c: Hoeveel tv's heeft Tech It Easy ingekocht? Schrijf een script dat dit berekent. Log de uitkomst in de console.
 
 let combinepurchased = 0;
 inventory.forEach(item => {
     combinepurchased += item.originalStock;
 })
-console.log(combinepurchased);
+// console.log(combinepurchased);
 
 // Opdracht 2d: Zorg ervoor dat dit aantal in het blauw wordt weergegeven op de pagina.
+
+const purchased = document.getElementById("purchasedProducts");
+purchased.textContent = combinepurchased;
 
 // Opdracht 2e: Geef in het rood weer hoeveel tv's er nog verkocht moeten worden. verwachte uitkomst is 40
 
@@ -222,4 +228,7 @@ let readyToBeSold = 0;
 inventory.forEach(item => {
     readyToBeSold = combinepurchased - combineSold;
 })
-console.log(readyToBeSold);
+// console.log(readyToBeSold);
+
+const stock = document.getElementById("stockProducts");
+stock.textContent = readyToBeSold;
