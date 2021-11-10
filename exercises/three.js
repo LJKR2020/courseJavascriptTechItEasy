@@ -185,7 +185,7 @@ const inventory = [
 // hergebruiken. Tip: vergeet deze functie declaratie niet aan te roepen!
 
 function brandList(inventory) {
-    let brands = inventory.map(inventory => inventory.brand);
+    let brands = inventory.map(item => item.brand);
     brands.forEach(brand => {
         const li = document.createElement('li');
         document.getElementById('brands').appendChild(li);
