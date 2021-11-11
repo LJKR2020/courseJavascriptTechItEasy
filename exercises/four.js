@@ -184,8 +184,6 @@ function completeTVName(oneTV) {
     return `${oneTV.brand} ${oneTV.type} - ${oneTV.name}`;
 }
 
-const name = completeTVName(inventory[0]);
-
 // Opdracht 4b: Zorg ervoor dat de prijs van een tv netjes geformat wordt.
 // Maak een functie die één tv-prijs als parameter verwacht (zoals 379) en
 // daar de volgende string van maakt: €379,-.
@@ -194,8 +192,6 @@ const name = completeTVName(inventory[0]);
 function tvPrice(oneTV) {
     return `€${oneTV.price},-`;
 }
-
-const price = tvPrice(inventory[0]);
 
 // Opdracht 4c: Zorg ervoor dat er een string wordt gegenereerd voor alle
 // beschikbare schermgroottes van één tv, in zowel inches als cm.
@@ -208,18 +204,16 @@ const price = tvPrice(inventory[0]);
 // 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm).
 // Test of jouw functie werkt in alle mogelijke gevallen.
 
-function tvSizes(oneTV) {
-    const allSizes = oneTV.map(size => {
+function tvSizes(inventory) {
+    const allSizes = inventory.availableSizes.map(size => {
         return size * 2.54;
     })
     let singleTv = "";
-    for (let i = 0; i < oneTV.length; i++) {
-        singleTv += `${oneTV[i]} inches ${allSizes[i]} cm | `;
+    for (let i = 0; i < inventory.availableSizes.length; i++) {
+        singleTv += `${inventory.availableSizes[i]} inches ${allSizes[i]} cm`;
     }
     return singleTv;
 }
-
-const sizes = tvSizes(inventory[0].availableSizes);
 
 // Opdracht 4d: Zorg ervoor de informatie van één van de tv's zoals het voorbeeld
 // wordt weergegeven op de pagina. Gebruik hiervoor de functies die je hebt gemaakt
@@ -238,26 +232,11 @@ const sizes = tvSizes(inventory[0].availableSizes);
 // onderdelen van de data te formatten. De overkoepelende "tv-generator-functie"
 // verwacht één parameter: de volledige array met tv-objecten. Vergeet 'm niet aan te roepen!
 
-function tvGeneratorFunction(tv) {
-    let tvGenerator = "";
-    tv.map(item => {
-        tvGenerator += `<p>${name}</p>
-        <p>${price} </p>
-        <p>${sizes}</p>`
-    })
-    return tvGenerator;
+function allProducts(list) {
+    const products = list.map((item) => {
+        return completeTVName(item) + "<br>" + tvPrice(item) + "<br>" + tvSizes(item) + "<br>";
+        });
+    return products.join(" ");
 }
 
-const allTv = document.getElementById('tvDescriptions')
-allTv.innerHTML = tvGeneratorFunction(inventory);
-
-//function tvGeneratorFunction (tv) {
-//     let tvGenerator = "";
-//     inventory.forEach(item => {
-//         tvGenerator += `
-//         <p>${item.brand + " " + item.type + " - " + item.name}</p>
-//         <p>€${item.price},-</p>
-//         <p>${sizes}</p>`
-//     })
-//     return tvGenerator;
-// }
+document.getElementById("tvDescriptions").innerHTML = allProducts(inventory);
